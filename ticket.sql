@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-08-2017 a las 07:03:28
+-- Tiempo de generación: 17-08-2017 a las 10:06:31
 -- Versión del servidor: 10.1.25-MariaDB
 -- Versión de PHP: 5.6.31
 
@@ -115,7 +115,10 @@ CREATE TABLE `ticket` (
   `horaLlegadaMax` time DEFAULT NULL,
   `alta` int(11) NOT NULL,
   `asignado` int(11) NOT NULL,
-  `cliente` text NOT NULL,
+  `cliente` varchar(50) NOT NULL,
+  `responsable` varchar(60) DEFAULT NULL,
+  `telefono` varchar(16) DEFAULT NULL,
+  `domicilio` varchar(100) DEFAULT NULL,
   `falla` text NOT NULL,
   `causa` text,
   `observaciones` text,
