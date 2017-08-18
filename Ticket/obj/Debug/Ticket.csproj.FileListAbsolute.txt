@@ -12,3 +12,17 @@ C:\Users\HP\source\repos\Ticket\Ticket\bin\Debug\MySql.Data.dll
 C:\Users\HP\source\repos\Ticket\Ticket\bin\Debug\MySql.Data.xml
 C:\Users\HP\source\repos\Ticket\Ticket\obj\Debug\Ticket.Ver.resources
 C:\Users\HP\source\repos\Ticket\Ticket\obj\Debug\Ticket.Nuevo.resources
+C:\Users\HP\source\repos\ticketSensor\Ticket\bin\Debug\Ticket.exe.config
+C:\Users\HP\source\repos\ticketSensor\Ticket\bin\Debug\Ticket.exe
+C:\Users\HP\source\repos\ticketSensor\Ticket\bin\Debug\Ticket.pdb
+C:\Users\HP\source\repos\ticketSensor\Ticket\bin\Debug\MySql.Data.dll
+C:\Users\HP\source\repos\ticketSensor\Ticket\bin\Debug\MySql.Data.xml
+C:\Users\HP\source\repos\ticketSensor\Ticket\obj\Debug\Ticket.csprojResolveAssemblyReference.cache
+C:\Users\HP\source\repos\ticketSensor\Ticket\obj\Debug\Ticket.Ver.resources
+C:\Users\HP\source\repos\ticketSensor\Ticket\obj\Debug\Ticket.Menu.resources
+C:\Users\HP\source\repos\ticketSensor\Ticket\obj\Debug\Ticket.Nuevo.resources
+C:\Users\HP\source\repos\ticketSensor\Ticket\obj\Debug\Ticket.Properties.Resources.resources
+C:\Users\HP\source\repos\ticketSensor\Ticket\obj\Debug\Ticket.csproj.GenerateResource.Cache
+C:\Users\HP\source\repos\ticketSensor\Ticket\obj\Debug\Ticket.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\ticketSensor\Ticket\obj\Debug\Ticket.exe
+C:\Users\HP\source\repos\ticketSensor\Ticket\obj\Debug\Ticket.pdb

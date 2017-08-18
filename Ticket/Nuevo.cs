@@ -51,7 +51,7 @@ namespace Ticket
         private void Nuevo_Load(object sender, EventArgs e)
         {
             accion = new ConectaBD();
-            string consulta1 = "Select id, nombre from tipoticket;";
+            string consulta1 = "Select id, nombre, descripcion from tipoticket;";
             DataSet aux1 = accion.Select(consulta1);
             cmbClase.DataSource = aux1.Tables[0];
             cmbClase.ValueMember = "id";
@@ -78,6 +78,11 @@ namespace Ticket
             {
                 gb1.Visible = true;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Algo");
         }
     }
 }
