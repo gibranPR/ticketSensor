@@ -41,7 +41,7 @@ namespace Ticket
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Ver modificar = new Ver(2);
+            Nuevo modificar = new Nuevo(2);
             modificar.Show();
         }
 

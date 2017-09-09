@@ -50,22 +50,7 @@ namespace Ticket
 
         private void Nuevo_Load(object sender, EventArgs e)
         {
-            accion = new ConectaBD();
-            string consulta1 = "Select id, nombre, descripcion from tipoticket;";
-            DataSet aux1 = accion.Select(consulta1);
-            cmbClase.DataSource = aux1.Tables[0];
-            cmbClase.ValueMember = "id";
-            cmbClase.DisplayMember = "nombre";
-            string consulta2 = "Select id, nombre from empleado where tipo = 1 or tipo = 3 order by nombre;";
-            DataSet aux2 = accion.Select(consulta2);
-            cmbAlta.DataSource = aux2.Tables[0];
-            cmbAlta.ValueMember = "id";
-            cmbAlta.DisplayMember = "nombre";
-            string consulta3 = "Select id, nombre from empleado where tipo = 2 order by nombre;";
-            DataSet aux3 = accion.Select(consulta3);
-            cmbAsignado.DataSource = aux3.Tables[0];
-            cmbAsignado.ValueMember = "id";
-            cmbAsignado.DisplayMember = "nombre";
+            comporta(valor);
         }
 
         private void cmbClase_SelectedIndexChanged(object sender, EventArgs e)
@@ -79,10 +64,62 @@ namespace Ticket
                 gb1.Visible = true;
             }
         }
+        private void comporta(int i)
+        {
+            accion = new ConectaBD();
+            if (i == 1)
+            {
+                string consulta1 = "Select id, nombre from tipoticket;";
+                DataSet aux1 = accion.Select(consulta1);
+                cmbClase.DataSource = aux1.Tables[0];
+                cmbClase.ValueMember = "id";
+                cmbClase.DisplayMember = "nombre";
+                cmbClase.auto
+                string consulta2 = "Select id, nombre from empleado where tipo = 1 or tipo = 3 order by nombre;";
+                DataSet aux2 = accion.Select(consulta2);
+                cmbAlta.DataSource = aux2.Tables[0];
+                cmbAlta.ValueMember = "id";
+                cmbAlta.DisplayMember = "nombre";
+                string consulta3 = "Select id, nombre, telefono from empleado where tipo = 2 order by nombre;";
+                DataSet aux3 = accion.Select(consulta3);
+                cmbAsignado.DataSource = aux3.Tables[0];
+                cmbAsignado.ValueMember = "id";
+                cmbAsignado.DisplayMember = "nombre";
+            } else
+            {
+                gb2.Visible = true;
+                button1.Visible = false;
+                txtFolio.Visible = true;
+                label12.Visible = true;
+                btnAceptar.Text = "Modificar";
+                string consulta = ("select * from ticket");
+                DataSet aux1 = accion.Select(consulta);
+                txtFolio.Text= aux1.Tables[0].Rows[0].ItemArray[0].ToString();
 
+
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Algo");
+
+            String consulta = "select descripcion from tipoticket where id = "+cmbClase.SelectedValue +";";
+            DataSet aux1 = accion.Select(consulta);
+
+            MessageBox.Show(aux1.Tables[0].Rows[0].ItemArray[0].ToString());
         }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {  
+
+            if (cmbClase.SelectedValue.Equals(1))
+            {
+                string consulta = "select telefono from empleado where id = " + cmbAsignado.SelectedValue + ";";
+                DataSet aux = accion.Select(consulta);
+                string telefono = aux.Tables[0].Rows[0].ItemArray[0].ToString();
+                MessageBox.Show("Favor de llamar a " + cmbAsignado.Text + "\nSu número es: " + telefono + ".");
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e) => Close();
     }
 }
