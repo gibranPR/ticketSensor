@@ -78,14 +78,6 @@ namespace Ticket
                 cmbAlta.DataSource = aux2;
                 cmbAlta.ValueMember = "id";
                 cmbAlta.DisplayMember = "nombre";
-                AutoCompleteStringCollection stringCol = new AutoCompleteStringCollection();
-                foreach (DataRow nombre in aux2.AsEnumerable()) {
-                    stringCol.Add(nombre.ToString());
-                }
-                cmbAlta.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                cmbAlta.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                cmbAlta.AutoCompleteCustomSource = stringCol;
-
                 string consulta3 = "Select id, nombre, telefono from empleado where tipo = 2 order by nombre;";
                 DataTable aux3 = accion.Select(consulta3);
                 cmbAsignado.DataSource = aux3;
@@ -107,10 +99,8 @@ namespace Ticket
         }
         private void button1_Click(object sender, EventArgs e)
         {
-
             String consulta = "select descripcion from tipoticket where id = "+cmbClase.SelectedValue +";";
             DataTable aux1 = accion.Select(consulta);
-
             MessageBox.Show(aux1.Rows[0].ItemArray[0].ToString());
         }
 
