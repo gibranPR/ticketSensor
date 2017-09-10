@@ -143,7 +143,7 @@ namespace Ticket
         /// </summary>
         /// <param name="consulta">Aqui va el SQL a ejecutar</param>
         /// 
-        public DataSet Select(string consulta)
+        public DataTable Select(string consulta)
         {
             DataSet list = new DataSet();
             if (this.abrirConexion() == true)
@@ -151,11 +151,11 @@ namespace Ticket
                 MySqlDataAdapter da = new MySqlDataAdapter(consulta, conexion);
                 da.Fill(list);
                 conexion.Close();
-                return list;
+                return list.Tables[0];
             }
             else
             {
-                return list;
+                return list.Tables[0];
             }
         }
         /// <summary>
