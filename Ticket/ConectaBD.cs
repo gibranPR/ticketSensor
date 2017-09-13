@@ -19,13 +19,11 @@ namespace Ticket
         private string basedatos;
         private string usuario;
         private string password;
-
         //Constructor
         public ConectaBD()
         {
             Initialize();
         }
-
         //inicializar valores
         private void Initialize()
         {
@@ -36,7 +34,6 @@ namespace Ticket
             string connectionString;
             connectionString = "SERVER=" + servidor + ";" + "DATABASE=" +
             basedatos + ";" + "UID=" + usuario + ";" + "PASSWORD=" + password + ";";
-
             conexion = new MySqlConnection(connectionString);
         }
         /// <summary>
@@ -102,7 +99,6 @@ namespace Ticket
                 this.cerrarConexion();
             }
         }
-
         /// <summary>
         /// Metodo que ejecuta un update a la base de datos
         /// </summary>
@@ -124,7 +120,7 @@ namespace Ticket
                 this.cerrarConexion();
             }
         }
-                /// <summary>
+        /// <summary>
         /// Metodo que ejecuta un delete a la base de datos
         /// </summary>
         /// <param name="consulta">Aqui va el SQL a ejecutar</param>
@@ -143,7 +139,7 @@ namespace Ticket
         /// </summary>
         /// <param name="consulta">Aqui va el SQL a ejecutar</param>
         /// 
-        public DataSet Select(string consulta)
+        public DataTable Select(string consulta)
         {
             DataSet list = new DataSet();
             if (this.abrirConexion() == true)
@@ -151,11 +147,12 @@ namespace Ticket
                 MySqlDataAdapter da = new MySqlDataAdapter(consulta, conexion);
                 da.Fill(list);
                 conexion.Close();
-                return list;
+                return list.Tables[0];
             }
             else
             {
-                return list;
+                System.Windows.Forms.MessageBox.Show("Error, revise la conexión.");
+                return null;
             }
         }
         /// <summary>
@@ -172,13 +169,10 @@ namespace Ticket
             {
                 //Create Mysql Command
                 MySqlCommand cmd = new MySqlCommand(consulta, conexion);
-
                 //ExecuteScalar will return one value
                 Count = int.Parse(cmd.ExecuteScalar() + "");
-
                 //close Connection
                 this.cerrarConexion();
-
                 return Count;
             }
             else
